@@ -1,0 +1,715 @@
+proxy-groups:
+  - name: 唯快不破
+    include-all: true
+    type: select
+    proxies:
+      - 自动选择
+    icon: https://github.com/clash-verge-rev/clash-verge-rev/raw/main/src-tauri/icons/icon.png
+
+  - name: 自动选择
+    type: url-test
+    include-all: true
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    icon: https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/adjust.svg
+
+  - name: 国外网站
+    include-all: true
+    type: select
+    proxies:
+      - 唯快不破
+      - Direct
+      - 自动选择
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png
+
+  - name: 国际媒体
+    include-all: true
+    type: select
+    proxies:
+      - 唯快不破
+      - Direct
+      - 自动选择
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png
+
+  - name: 苹果服务
+    include-all: true
+    type: select
+    proxies:
+      - 唯快不破
+      - Direct
+      - 自动选择
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple_1.png
+
+  - name: 微软服务
+    include-all: true
+    type: select
+    proxies:
+      - 唯快不破
+      - Direct
+      - 自动选择
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Microsoft.png
+
+  - name: 谷歌服务
+    include-all: true
+    type: select
+    proxies:
+      - 唯快不破
+      - Direct
+      - 自动选择
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png
+
+  - name: Youtube
+    include-all: true
+    type: select
+    proxies:
+      - 唯快不破
+      - Direct
+      - 自动选择
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png
+  
+  - name: Github
+    include-all: true
+    type: select
+    proxies:
+      - 唯快不破
+      - Direct
+      - 自动选择
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/GitHub.png
+
+  
+  - name: 电报消息
+    include-all: true
+    type: select
+    proxies:
+      - 唯快不破
+      - Direct
+      - 自动选择
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png
+
+  - name: 推特消息
+    include-all: true
+    type: select
+    proxies:
+      - 唯快不破
+      - Direct
+      - 自动选择
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Twitter.png
+
+  - name: AI
+    include-all: true
+    type: select
+    proxies:
+      - 唯快不破
+      - Direct
+      - 自动选择
+    icon: https://raw.githubusercontent.com/Orz-3/mini/master/Color/OpenAI.png
+
+  - name: 游戏平台
+    include-all: true
+    type: select
+    proxies:
+      - 唯快不破
+      - Direct
+      - 自动选择
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Game.png
+
+  - name: Emby
+    include-all: true
+    type: select
+    proxies:
+      - 唯快不破
+      - Direct
+      - 自动选择
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Emby.png
+
+  - name: Netflix奈飞
+    include-all: true
+    type: select
+    proxies:
+      - 唯快不破
+      - Direct
+      - 自动选择
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Netflix.png
+
+  - name: 广告拦截
+    include-all: true
+    type: select
+    proxies:
+      - REJECT
+      - Direct
+      - 自动选择
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Advertising.png
+
+  - name: 兜底分流
+    include-all: true
+    type: select
+    proxies:
+      - 唯快不破
+      - Direct
+      - 自动选择
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
+
+  - name: Direct
+    include-all: true
+    type: select
+    proxies:
+      - DIRECT
+
+rule-providers:
+  # AI 类
+  ai:
+    type: http
+    behavior: classical
+    format: yaml
+    path: ./rules/ai.yaml
+    url: "https://fastly.jsdelivr.net/gh/MadisonWirtanen/WARP-Clash-with-ZJU-Rules@main/ai.yaml"
+    interval: 86400
+    
+  Gemini: 
+    type: http
+    behavior: classical
+    format: yaml
+    path: ./rules/Gemini.yaml
+    url: "https://cdn.jsdelivr.net/gh/zuluion/Clash-Template-Config@master/Filter/Gemini.yaml"
+    interval: 86400
+
+  Claude: 
+    type: http
+    behavior: classical
+    format: yaml
+    path: ./rules/Claude.yaml
+    url: "https://cdn.jsdelivr.net/gh/zuluion/Clash-Template-Config@master/Filter/Claude.yaml"
+    interval: 86400
+
+# 广告类
+  AdBlock:
+    type: http
+    behavior: classical
+    format: yaml
+    path: ./rules/AdBlock.yaml
+    url: "https://cdn.jsdelivr.net/gh/zuluion/Clash-Template-Config@master/Filter/AdBlock.yaml"
+    interval: 86400
+    
+  BanAD:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list"
+    path: ./ruleset/BanAD.yaml
+    interval: 86400
+
+  BanProgramAD:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanProgramAD.list"
+    path: ./ruleset/BanProgramAD.yaml
+    interval: 86400
+
+  BanEasyList:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyList.list"
+    path: ./ruleset/BanEasyList.yaml
+    interval: 86400
+
+  reject:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt"
+    path: ./ruleset/reject.yaml
+    interval: 86400
+
+# 补丁类
+  collection: 
+    type: http
+    behavior: classical
+    format: yaml
+    path: ./rules/collection.yaml
+    url: "https://gist.githubusercontent.com/cnfree8964/0864fd1d2e88936a095fb40d74ce4993/raw/collection.yaml"
+
+  gfw:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/gfw.txt"
+    path: ./ruleset/gfw.yaml
+    interval: 86400
+
+  proxy:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt"
+    path: ./ruleset/proxy.yaml
+    interval: 86400
+
+  tld-not-cn:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/tld-not-cn.txt"
+    path: ./ruleset/tld-not-cn.yaml
+    interval: 86400
+
+  ProxyGFWlist:
+    type: http
+    behavior: domain
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyGFWlist.list"
+    path: ./ruleset/BanEasyList.yaml
+    interval: 86400
+
+  ProxyClient: 
+    type: http
+    behavior: classical
+    format: yaml
+    path: ./rules/ProxyClient.yaml
+    url: "https://cdn.jsdelivr.net/gh/zuluion/Clash-Template-Config@master/Filter/ProxyClient.yaml"
+
+  ChinaDomain:
+    type: http
+    behavior: classical
+    format: yaml
+    path: ./rules/ChinaDomain.yaml
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list"
+    interval: 86400
+
+  ChinaCompanyIp:
+    type: http
+    behavior: classical
+    format: yaml
+    path: ./rules/ChinaCompanyIp.yaml
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaCompanyIp.list"
+    interval: 86400
+
+  China: 
+    type: http
+    behavior: classical
+    format: yaml
+    path: ./rules/China.yaml
+    url: "https://cdn.jsdelivr.net/gh/zuluion/Clash-Template-Config@master/Filter/China.yaml"
+    interval: 86400
+
+  cncidr:
+    type: http
+    behavior: ipcidr
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/cncidr.txt"
+    path: ./ruleset/cncidr.yaml
+    interval: 86400
+
+  lancidr:
+    type: http
+    behavior: ipcidr
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt"
+    path: ./ruleset/lancidr.yaml
+    interval: 86400
+
+# 服务类
+  telegramcidr:
+    type: http
+    behavior: ipcidr
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/telegramcidr.txt"
+    path: ./ruleset/telegramcidr.yaml
+    interval: 86400
+
+  PayPal: 
+    type: http
+    behavior: classical
+    format: yaml
+    path: ./rules/PayPal.yaml
+    url: "https://cdn.jsdelivr.net/gh/zuluion/Clash-Template-Config@master/Filter/PayPal.yaml"
+    interval: 86400
+
+  TikTok: 
+    type: http
+    behavior: classical
+    format: yaml
+    path: ./rules/TikTok.yaml
+    url: "https://cdn.jsdelivr.net/gh/zuluion/Clash-Template-Config@master/Filter/TikTok.yaml"
+    interval: 86400
+
+  IDM: 
+    type: http
+    behavior: classical
+    format: yaml
+    path: ./rules/IDM.yaml
+    url: "https://cdn.jsdelivr.net/gh/zuluion/Clash-Template-Config@master/Filter/IDM.yaml"
+
+# 流媒体
+  Amazon: 
+    type: http
+    behavior: classical
+    format: yaml
+    path: ./rules/Amazon.yaml
+    url: "https://cdn.jsdelivr.net/gh/zuluion/Clash-Template-Config@master/Filter/Amazon.yaml"
+    interval: 86400
+
+  Netflix: 
+    type: http
+    behavior: classical
+    format: yaml
+    path: ./rules/Netflix.yaml
+    url: "https://cdn.jsdelivr.net/gh/zuluion/Clash-Template-Config@master/Filter/Netflix.yaml"
+    interval: 86400
+
+  Spotify: 
+    type: http
+    behavior: classical
+    format: yaml
+    path: ./rules/Spotify.yaml
+    url: "https://cdn.jsdelivr.net/gh/zuluion/Clash-Template-Config@master/Filter/Spotify.yaml"
+    interval: 86400
+    
+  DisneyPlus: 
+    type: http
+    behavior: classical
+    format: yaml
+    path: ./rules/DisneyPlus.yaml
+    url: "https://cdn.jsdelivr.net/gh/zuluion/Clash-Template-Config@master/Filter/DisneyPlus.yaml"
+    
+  Hulu: 
+    type: http
+    behavior: classical
+    format: yaml
+    path: ./rules/Hulu.yaml
+    url: "https://cdn.jsdelivr.net/gh/zuluion/Clash-Template-Config@master/Filter/Hulu.yaml"
+
+  HBO: 
+    type: http
+    behavior: classical
+    format: yaml
+    path: ./rules/HBO.yaml
+    url: "https://cdn.jsdelivr.net/gh/zuluion/Clash-Template-Config@master/Filter/HBO.yaml"
+
+# 游戏类
+  Steam: 
+    type: http
+    behavior: classical
+    format: yaml
+    path: ./rules/Steam.yaml
+    url: "https://cdn.jsdelivr.net/gh/zuluion/Clash-Template-Config@master/Filter/Steam.yaml"
+    interval: 86400
+  AD:
+    type: http
+    behavior: classical
+    url: https://adrules.top/adrules_domainset.txt
+    path: ./rule-providers/AD.list
+
+  Apple:
+    type: http
+    behavior: classical
+    url: https://github.com/Repcz/Tool/raw/X/Clash/Rules/Apple.list
+    path: ./rule-providers/Apple.list
+
+  Google:
+    type: http
+    behavior: classical
+    url: https://github.com/Repcz/Tool/raw/X/Clash/Rules/Google.list
+    path: ./rule-providers/Google.list
+
+  YouTube:
+    type: http
+    behavior: classical
+    url: https://github.com/Repcz/Tool/raw/X/Clash/Rules/YouTube.list
+    path: ./rule-providers/YouTube.list
+
+  Telegram:
+    type: http
+    behavior: classical
+    url: https://github.com/Repcz/Tool/raw/X/Clash/Rules/Telegram.list
+    path: ./rule-providers/Telegram.list
+
+  Twitter:
+    type: http
+    behavior: classical
+    url: https://github.com/Repcz/Tool/raw/X/Clash/Rules/Twitter.list
+    path: ./rule-providers/Twitter.list
+
+  Epic:
+    type: http
+    behavior: classical
+    url: https://github.com/Repcz/Tool/raw/X/Clash/Rules/Epic.list
+    path: ./rule-providers/Epic.list
+
+  AI:
+    type: http
+    behavior: classical
+    url: https://github.com/Repcz/Tool/raw/X/Clash/Rules/AI.list
+    path: ./rule-providers/AI.list
+
+  Emby:
+    type: http
+    behavior: classical
+    url: https://github.com/Repcz/Tool/raw/X/Clash/Rules/Emby.list
+    path: ./rule-providers/Emby.list
+
+
+  Bahamut:
+    type: http
+    behavior: classical
+    url: https://github.com/Repcz/Tool/raw/X/Clash/Rules/Bahamut.list
+    path: ./rule-providers/Bahamut.list
+
+
+  Disney:
+    type: http
+    behavior: classical
+    url: https://github.com/Repcz/Tool/raw/X/Clash/Rules/Disney.list
+    path: ./rule-providers/Disney.list
+
+  PrimeVideo:
+    type: http
+    behavior: classical
+    url: https://github.com/Repcz/Tool/raw/X/Clash/Rules/PrimeVideo.list
+    path: ./rule-providers/PrimeVideo.list
+
+  OneDrive:
+    type: http
+    behavior: classical
+    url: https://github.com/Repcz/Tool/raw/X/Clash/Rules/OneDrive.list
+    path: ./rule-providers/OneDrive.list
+
+  Github:
+    type: http
+    behavior: classical
+    url: https://github.com/Repcz/Tool/raw/X/Clash/Rules/Github.list
+    path: ./rule-providers/Github.list
+
+  Microsoft:
+    type: http
+    behavior: classical
+    url: https://github.com/Repcz/Tool/raw/X/Clash/Rules/Microsoft.list
+    path: ./rule-providers/Microsoft.list
+
+  Lan:
+    type: http
+    behavior: classical
+    url: https://github.com/Repcz/Tool/raw/X/Clash/Rules/Lan.list
+    path: ./rule-providers/Lan.list
+
+  ProxyGFW:
+    type: http
+    behavior: classical
+    url: https://github.com/Repcz/Tool/raw/X/Clash/Rules/ProxyGFW.list
+    path: ./rule-providers/ProxyGFW.list
+
+
+profile:
+  store-selected: true
+dns:
+  enable: true
+  listen: 0.0.0.0:1053
+  use-system-hosts: false
+  prefer-h3: true
+  ipv6: true
+  cache-algorithm: arc
+  fake-ip-filter-mode: blacklist
+  enhanced-mode: fake-ip
+  fake-ip-filter:
+    - '*'
+    - '+.lan'
+    - '+.local'
+    - '+.msftconnecttest.com'
+    - '+.msftnsci.com'
+    - 'localhost.ptlogin2.qq.com'
+    - 'localhost.sec.qq.com'
+    - 'localhost.work.weixin.qq.com'
+  nameserver:
+    - https://dns.alidns.com/dns-query
+    - https://doh.360.cn/dns-query
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query#h3=true
+  default-nameserver:
+    - tls://1.12.12.12
+    - 223.5.5.5
+  proxy-server-nameserver: 
+    - https://1.1.1.1/dns-query
+    - https://1.0.0.1/dns-query
+    - https://208.67.222.222/dns-query
+    - https://208.67.220.220/dns-query
+    - https://194.242.2.2/dns-query
+    # - https://doh.pub/dns-query
+  fallback:
+    - https://1.1.1.1/dns-query#唯快不破
+    - https://dns.google/dns-query#唯快不破
+  fallback-filter:
+    geoip: true
+    geoip-code: CN
+    ipcidr:
+      - 240.0.0.0/4
+    domain:
+      - '+.google.com'
+      - '+.facebook.com'
+      - '+.youtube.com'
+      - '+.instagram.com'
+  nameserver-policy:
+    '+.devdev1.cn': 'https://dns.yyds.cn/dns-query/mydns'
+    '+.auok.cn': 'https://dns.yyds.cn/dns-query/mydns'
+    '+.ok123.pub': 'https://dns.yyds.cn/dns-query/mydns'
+    '+.devops.com': 'https://dns.yyds.cn/dns-query/mydns'
+    "geosite:cn,private,apple,microsoft,onedrive":
+      - https://doh.pub/dns-query
+      - https://dns.alidns.com/dns-query
+unified-delay: true
+tcp-concurrent: true
+
+tun:
+  enable: true
+  stack: mixed
+  auto-route: true
+  auto-redirect: true
+  auto-detect-interface: true
+  dns-hijack:
+    - any:53
+    - tcp://any:53
+  device: utun0
+  mtu: 1500
+  strict-route: true
+  gso: true
+  gso-max-size: 65536
+  udp-timeout: 300
+  iproute2-table-index: 2022
+  iproute2-rule-index: 9000
+  endpoint-independent-nat: false
+  route-address-set:
+    - ruleset-1
+  route-exclude-address-set:
+    - ruleset-2
+  route-address:
+    - 0.0.0.0/1
+    - 128.0.0.0/1
+    - "::/1"
+    - "8000::/1"
+  route-exclude-address:
+    - 192.168.0.0/16
+    - fc00::/7
+  include-interface:
+    - eth0
+  exclude-interface:
+    - eth1
+  include-uid:
+    - 0
+  include-uid-range:
+    - 1000:9999
+  exclude-uid:
+    - 1000
+  exclude-uid-range:
+    - 1000:9999
+  include-android-user:
+    - 0
+    - 10
+  include-package:
+    - com.android.chrome
+  exclude-package:
+    - com.android.captiveportallogin
+rules:
+  - IP-CIDR,1.2.3.4/32,Direct
+  - DOMAIN-KEYWORD,hhu,Direct
+
+
+  - DOMAIN-SUFFIX,googleapis.com,AI # Google chat 服务
+  - DOMAIN-SUFFIX,gstatic.com,唯快不破 # Google静态资源
+  - DOMAIN-SUFFIX,xn--ngstr-lra8j.com,唯快不破 # Google Play下载服务
+  - DOMAIN-SUFFIX,github.io,谷歌服务 #Github Pages
+  - DOMAIN-SUFFIX,dadada.acaisbest.com,唯快不破
+  - DOMAIN-SUFFIX,isroots.com,AI
+  - DOMAIN-KEYWORD,marscode,AI
+  - DOMAIN-SUFFIX,appmiu.com,Direct
+  - DOMAIN,v2rayse.com,唯快不破 # V2rayse节点工具
+  - DOMAIN-KEYWORD,cocopilot.org,唯快不破
+  - DOMAIN-KEYWORD,linux.do,唯快不破
+  - DOMAIN-KEYWORD,n256,Direct
+  - DOMAIN-SUFFIX,quark.cn,Direct
+  - DOMAIN-KEYWORD,alipan,Direct
+  - DOMAIN-KEYWORD,learning.google.com,AI
+  - RULE-SET,AD,广告拦截
+  - RULE-SET,AI,AI
+  - RULE-SET,Apple,苹果服务
+  - RULE-SET,YouTube,谷歌服务
+  - RULE-SET,Google,谷歌服务
+  - RULE-SET,Telegram,电报消息
+  - RULE-SET,Twitter,推特消息
+  - RULE-SET,Steam,游戏平台
+  - RULE-SET,Epic,游戏平台
+  - RULE-SET,Emby,Emby
+  - RULE-SET,Spotify,国际媒体
+  - RULE-SET,Bahamut,国际媒体
+  - RULE-SET,Netflix,Netflix奈飞
+  - RULE-SET,Disney,国际媒体
+  - RULE-SET,PrimeVideo,国际媒体
+  - RULE-SET,HBO,国际媒体
+  - GEOSITE,onedrive,微软服务
+  - GEOSITE,github,谷歌服务
+  - GEOSITE,microsoft,微软服务
+  - GEOSITE,gfw,国外网站
+  - RULE-SET,China,DIRECT
+  - GEOIP,lan,DIRECT
+  - GEOIP,CN,DIRECT
+  # 解锁AI
+  - RULE-SET,ai,AI
+  - RULE-SET,Gemini,AI
+  - RULE-SET,Claude,AI
+  - DOMAIN,meta.ai,AI
+  - DOMAIN,claude.ai,AI
+  - DOMAIN,groq.com,AI
+  - DOMAIN-SUFFIX,console.anthropic.com,AI
+  - DOMAIN,anthropic.com,AI
+  - DOMAIN,claude.ai,AI
+  - DOMAIN,console.anthropic.com,AI
+  - DOMAIN,anthropic.com,AI
+  - DOMAIN-SUFFIX,aistudio.google.com,AI
+  - DOMAIN,browser-intake-datadoghq.com,AI
+  - DOMAIN,static.cloudflareinsights.com,AI
+  - DOMAIN,ai-pro.org,AI
+  - DOMAIN-SUFFIX,ai.com,AI
+  - DOMAIN-SUFFIX,algolia.net,AI
+  - DOMAIN-SUFFIX,api.statsig.com,AI
+  - DOMAIN-SUFFIX,auth0.com,AI
+  - DOMAIN-SUFFIX,chatgpt.com,AI
+  - DOMAIN-SUFFIX,chatgpt.livekit.cloud,AI
+  - DOMAIN-SUFFIX,client-api.arkoselabs.com,AI
+  - DOMAIN-SUFFIX,events.statsigapi.net,AI
+  - DOMAIN-SUFFIX,featuregates.org,AI
+  - DOMAIN-SUFFIX,host.livekit.cloud,AI
+  - DOMAIN-SUFFIX,identrust.com,AI
+  - DOMAIN-SUFFIX,intercom.io,AI
+  - DOMAIN-SUFFIX,intercomcdn.com,AI
+  - DOMAIN-SUFFIX,launchdarkly.com,AI
+  - DOMAIN-SUFFIX,oaistatic.com,AI
+  - DOMAIN-SUFFIX,oaiusercontent.com,AI
+  - DOMAIN-SUFFIX,observeit.net,AI
+  - DOMAIN-SUFFIX,poe.com,AI
+  - DOMAIN-SUFFIX,segment.io,AI
+  - DOMAIN-SUFFIX,sentry.io,AI
+  - DOMAIN-SUFFIX,stripe.com,AI
+  - DOMAIN-SUFFIX,turn.livekit.cloud,AI
+  - DOMAIN-KEYWORD,openai,AI
+
+# 服务类
+  - RULE-SET,TikTok,国际媒体
+  - RULE-SET,PayPal,唯快不破
+  - RULE-SET,telegramcidr,唯快不破
+  - DOMAIN-KEYWORD,oaifree,DIRECT
+  - DOMAIN-SUFFIX,shared.oaifree.com,DIRECT
+  
+
+# 屏蔽广告
+  - RULE-SET,AdBlock,广告拦截
+  - RULE-SET,reject,广告拦截
+  - RULE-SET,BanAD,广告拦截
+  - RULE-SET,BanProgramAD,广告拦截
+  - RULE-SET,BanEasyList,广告拦截
+  
+# 补丁规则
+  - RULE-SET,gfw,唯快不破
+  - RULE-SET,proxy,唯快不破
+  - RULE-SET,tld-not-cn,唯快不破
+  - RULE-SET,ProxyGFWlist,唯快不破
+  - RULE-SET,ProxyClient,唯快不破
+  - RULE-SET,ChinaDomain,DIRECT,no-resolve
+  - RULE-SET,ChinaCompanyIp,DIRECT,no-resolve
+  - RULE-SET,cncidr,DIRECT,no-resolve
+  - RULE-SET,China,DIRECT,no-resolve
+  - RULE-SET,lancidr,DIRECT,no-resolve
+  - RULE-SET,collection,DIRECT,no-resolve
+
+# 默认规则 
+  - GEOIP,CN,DIRECT,no-resolve
+  - GEOSITE,geolocation-cn,DIRECT
+  - GEOSITE,geolocation-!cn,唯快不破
+  - MATCH,兜底分流
