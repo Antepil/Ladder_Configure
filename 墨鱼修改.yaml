@@ -20,12 +20,14 @@ proxy-groups:
   - {name: 苹果服务, type: select, proxies: [DIRECT, 手动切换, 自动选择, 香港节点, 日本节点, 台湾节点, 美国节点, 狮城节点], icon: https://ghp.ci/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png }
   - {name: 哔哩哔哩, type: select, proxies: [DIRECT, 香港节点, 台湾节点], icon: https://ghp.ci/https://raw.githubusercontent.com/Orz-3/mini/master/Color/bilibili.png }
   - {name: Emby服务, type: select, proxies: [手动切换, DIRECT, 自动选择, 香港节点, 日本节点, 台湾节点, 美国节点, 狮城节点], icon: https://ghp.ci/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Emby.png }
-  - {name: Netflix奈飞, type: select, proxies: [手动切换, DIRECT, 自动选择, 香港节点, 日本节点, 台湾节点, 美国节点, 狮城节点], icon: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/netflix.mrs }
+  - {name: Netflix奈飞, type: select, proxies: [手动切换, DIRECT, 自动选择, 香港节点, 日本节点, 台湾节点, 美国节点, 狮城节点], icon: https://github.com/clash-verge-rev/clash-verge-rev.github.io/raw/main/docs/assets/icons/netflix.svg }
   - {name: OpenAi,   type: select, proxies: [美国节点, 手动切换], icon: https://ghp.ci/https://raw.githubusercontent.com/Orz-3/mini/master/Color/OpenAI.png }
-  - {name: 油管服务, type: select, proxies: [手动切换, DIRECT, 自动选择, 香港节点, 日本节点, 台湾节点, 美国节点, 狮城节点], icon: https://ghp.ci/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Streaming.png }
+  - {name: 油管服务, type: select, proxies: [手动切换, DIRECT, 自动选择, 香港节点, 日本节点, 台湾节点, 美国节点, 狮城节点], icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png }
   - {name: 国际媒体, type: select, proxies: [手动切换, DIRECT, 自动选择, 香港节点, 日本节点, 台湾节点, 美国节点, 狮城节点], icon: https://ghp.ci/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Streaming.png }
   - {name: 谷歌服务, type: select, proxies: [手动切换, DIRECT, 自动选择, 香港节点, 日本节点, 台湾节点, 美国节点, 狮城节点], icon: https://ghp.ci/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Google.png }
   - {name: 电报消息, type: select, proxies: [手动切换, DIRECT, 自动选择, 香港节点, 日本节点, 台湾节点, 美国节点, 狮城节点], icon: https://ghp.ci/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Telegram.png }
+  
+  - {name: Notion, type: select, proxies: [手动切换, DIRECT, 自动选择, 香港节点, 日本节点, 台湾节点, 美国节点, 狮城节点], icon: }
   - {name: Github, type: select, proxies: [手动切换, DIRECT, 自动选择, 香港节点, 日本节点, 台湾节点, 美国节点, 狮城节点], icon: https://ghp.ci/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Telegram.png }
   - {name: 推特服务, type: select, proxies: [手动切换, DIRECT, 自动选择, 香港节点, 日本节点, 台湾节点, 美国节点, 狮城节点], icon: https://ghp.ci/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Twitter.png }
   - {name: 游戏平台, type: select, proxies: [DIRECT, 手动切换, 自动选择, 香港节点, 日本节点, 台湾节点, 美国节点, 狮城节点], icon: https://ghp.ci/https://raw.githubusercontent.com/Orz-3/mini/master/Color/GAME.png }
@@ -87,3 +89,115 @@ rules:
   - RULE-SET,Download,DIRECT
   - GEOIP,CN,DIRECT
   - MATCH,兜底分流
+
+profile:
+  store-selected: true
+dns:
+  enable: true
+  listen: 0.0.0.0:1053
+  use-system-hosts: false
+  prefer-h3: true
+  ipv6: true
+  cache-algorithm: arc
+  fake-ip-filter-mode: blacklist
+  enhanced-mode: fake-ip
+  fake-ip-filter:
+    - '*'
+    - '+.lan'
+    - '+.local'
+    - '+.msftconnecttest.com'
+    - '+.msftnsci.com'
+    - 'localhost.ptlogin2.qq.com'
+    - 'localhost.sec.qq.com'
+    - 'localhost.work.weixin.qq.com'
+  nameserver:
+    - https://dns.alidns.com/dns-query
+    - https://doh.360.cn/dns-query
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query#h3=true
+  default-nameserver:
+    - tls://1.12.12.12
+    - 223.5.5.5
+  proxy-server-nameserver: 
+    - https://1.1.1.1/dns-query
+    - https://1.0.0.1/dns-query
+    - https://208.67.222.222/dns-query
+    - https://208.67.220.220/dns-query
+    - https://194.242.2.2/dns-query
+    # - https://doh.pub/dns-query
+  fallback:
+    - https://1.1.1.1/dns-query#唯快不破
+    - https://dns.google/dns-query#唯快不破
+  fallback-filter:
+    geoip: true
+    geoip-code: CN
+    ipcidr:
+      - 240.0.0.0/4
+    domain:
+      - '+.google.com'
+      - '+.facebook.com'
+      - '+.youtube.com'
+      - '+.instagram.com'
+  nameserver-policy:
+    '+.devdev1.cn': 'https://dns.yyds.cn/dns-query/mydns'
+    '+.auok.cn': 'https://dns.yyds.cn/dns-query/mydns'
+    '+.ok123.pub': 'https://dns.yyds.cn/dns-query/mydns'
+    '+.devops.com': 'https://dns.yyds.cn/dns-query/mydns'
+    "geosite:cn,private,apple,microsoft,onedrive":
+      - https://doh.pub/dns-query
+      - https://dns.alidns.com/dns-query
+unified-delay: true
+tcp-concurrent: true
+
+tun:
+  enable: true
+  stack: mixed
+  auto-route: true
+  auto-redirect: true
+  auto-detect-interface: true
+  dns-hijack:
+    - any:53
+    - tcp://any:53
+  device: utun0
+  mtu: 1500
+  strict-route: true
+  gso: true
+  gso-max-size: 65536
+  udp-timeout: 300
+  iproute2-table-index: 2022
+  iproute2-rule-index: 9000
+  endpoint-independent-nat: false
+  route-address-set:
+    - ruleset-1
+  route-exclude-address-set:
+    - ruleset-2
+  route-address:
+    - 0.0.0.0/1
+    - 128.0.0.0/1
+    - "::/1"
+    - "8000::/1"
+  route-exclude-address:
+    - 192.168.0.0/16
+    - fc00::/7
+  include-interface:
+    - eth0
+  exclude-interface:
+    - eth1
+  include-uid:
+    - 0
+  include-uid-range:
+    - 1000:9999
+  exclude-uid:
+    - 1000
+  exclude-uid-range:
+    - 1000:9999
+  include-android-user:
+    - 0
+    - 10
+  include-package:
+    - com.android.chrome
+  exclude-package:
+    - com.android.captiveportallogin
+  rules:
+  - IP-CIDR,1.2.3.4/32,Direct
+  - DOMAIN-KEYWORD,hhu,Direct
