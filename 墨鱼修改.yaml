@@ -18,10 +18,11 @@ proxy-groups:
   - {name: 手动切换, type: select, include-all: true, icon: https://ghp.ci/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Static.png }
   - {name: 全球加速, type: select, proxies: [手动切换, DIRECT, 自动选择, 香港节点, 日本节点, 台湾节点, 美国节点, 狮城节点], icon: https://ghp.ci/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png }
   - {name: 苹果服务, type: select, proxies: [DIRECT, 手动切换, 自动选择, 香港节点, 日本节点, 台湾节点, 美国节点, 狮城节点], icon: https://ghp.ci/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png }
+  - {name: 微软服务, type: select, proxies: [DIRECT, 手动切换, 自动选择, 香港节点, 日本节点, 台湾节点, 美国节点, 狮城节点], icon: https://ghp.ci/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png }
   - {name: 哔哩哔哩, type: select, proxies: [DIRECT, 香港节点, 台湾节点], icon: https://ghp.ci/https://raw.githubusercontent.com/Orz-3/mini/master/Color/bilibili.png }
   - {name: Emby服务, type: select, proxies: [手动切换, DIRECT, 自动选择, 香港节点, 日本节点, 台湾节点, 美国节点, 狮城节点], icon: https://ghp.ci/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Emby.png }
   - {name: Netflix奈飞, type: select, proxies: [手动切换, DIRECT, 自动选择, 香港节点, 日本节点, 台湾节点, 美国节点, 狮城节点], icon: https://github.com/clash-verge-rev/clash-verge-rev.github.io/raw/main/docs/assets/icons/netflix.svg }
-  - {name: OpenAi,   type: select, proxies: [美国节点, 手动切换], icon: https://ghp.ci/https://raw.githubusercontent.com/Orz-3/mini/master/Color/OpenAI.png }
+  - {name: OpenAi,   type: select, proxies: [手动切换,香港节点, 日本节点, 台湾节点, 美国节点, 狮城节点], icon: https://ghp.ci/https://raw.githubusercontent.com/Orz-3/mini/master/Color/OpenAI.png }
   - {name: 油管服务, type: select, proxies: [手动切换, DIRECT, 自动选择, 香港节点, 日本节点, 台湾节点, 美国节点, 狮城节点], icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png }
   - {name: 国际媒体, type: select, proxies: [手动切换, DIRECT, 自动选择, 香港节点, 日本节点, 台湾节点, 美国节点, 狮城节点], icon: https://ghp.ci/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Streaming.png }
   - {name: 谷歌服务, type: select, proxies: [手动切换, DIRECT, 自动选择, 香港节点, 日本节点, 台湾节点, 美国节点, 狮城节点], icon: https://ghp.ci/https://raw.githubusercontent.com/Orz-3/mini/master/Color/Google.png }
@@ -73,14 +74,14 @@ rules:
   - RULE-SET,BiliBili,哔哩哔哩
   - RULE-SET,Bahamut,哔哩哔哩
   - RULE-SET,YouTube,油管服务
+  - RULE-SET,Netflix,Netflix奈飞
   - RULE-SET,GlobalMedia,国际媒体
   - RULE-SET,Apple,苹果服务
-  - RULE-SET,Netflix,Netflix奈飞
-  - RULE-SET,Github,全球加速
-  - RULE-SET,Microsoft,全球加速
+  - RULE-SET,Github,Github
+  - RULE-SET,Microsoft,微软服务
   - RULE-SET,Google,谷歌服务
   - RULE-SET,Telegram,电报消息
-  - RULE-SET,Twitter,全球加速
+  - RULE-SET,Twitter,谷歌服务
   - RULE-SET,Game,游戏平台
   - RULE-SET,ProxyLite,全球加速
   - RULE-SET,ChinaIP,DIRECT
@@ -89,7 +90,6 @@ rules:
   - RULE-SET,Download,DIRECT
   - GEOIP,CN,DIRECT
   - MATCH,兜底分流
-  
   - RULE-SET,Notion,Notion
 
 
@@ -97,7 +97,7 @@ rules:
 
 
 
-  
+
 profile:
   store-selected: true
 dns:
