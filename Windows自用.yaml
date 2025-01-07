@@ -94,7 +94,6 @@ proxy-groups:
       - Direct
       - 自动选择
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Twitter.png
-
   - name: AI
     include-all: true
     type: select
@@ -139,6 +138,8 @@ proxy-groups:
       - Direct
       - 自动选择
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Advertising.png
+
+    
 
   - name: 兜底分流
     include-all: true
